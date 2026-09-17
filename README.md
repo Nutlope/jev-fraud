@@ -16,7 +16,7 @@ Open http://localhost:3017. **Run live** streams new provider decisions; **10s r
 To produce the durable recorded run:
 
 ```sh
-node --env-file=.env.local scripts/run-benchmark.mjs
+npm run benchmark
 ```
 
 This makes 100 Jev calls and Kimi calls for uncertain cases, with five emails in flight. It writes `data/recording.json`. Refresh the dashboard afterward. Do not run it simultaneously with a UI run. The replay preserves the recorded routing threshold and compresses event timing into 10 seconds; the original API latencies and costs remain unchanged.
@@ -52,6 +52,13 @@ npm run build
 
 Tests cover the threshold boundary, escalation of low-confidence legitimate predictions, exclusion of ground truth from both provider inputs, accounting for failed paid calls, and unresolved review failures.
 
-## Deployment
+## Vercel deployment (when ready)
 
-The app uses the Sites Vinext / Cloudflare Worker starter. Secrets stay server-side and must be configured in the hosted runtime; they are not shipped in source or replay exports. A hosted app without keys can replay a recorded run but returns a configuration error for live inference. Keep paid live inference owner-private or add authentication and durable rate/budget controls before making it public.
+This is a standard Next.js App Router app. No Sites or Cloudflare runtime is required.
+
+1. Import this folder/repository into Vercel with the Next.js framework preset.
+2. Set `AI_GATEWAY_API_KEY` and `OPENROUTER_API_KEY` in Vercel environment variables.
+3. Build command: `npm run build`. No custom output directory is needed.
+4. The live route declares Node.js runtime and a 300-second maximum duration; ensure your Vercel plan supports it.
+
+The recorded 100-email run ships with the app and needs no credentials for replay. Live inference uses server-side secrets. Keep the live app private with Vercel Deployment Protection or add authentication/rate limits before opening paid inference publicly. No Vercel deployment has been created.

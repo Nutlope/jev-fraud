@@ -1,3 +1,5 @@
+export const runtime = 'nodejs';
+export const maxDuration = 300;
 import emails from '@/data/emails.json';
 import { processEmail, summarize } from '@/lib/pipeline.mjs';
 export async function POST(request:Request){
