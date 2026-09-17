@@ -1,0 +1,13 @@
+{
+  "name": "DIFrauD phishing",
+  "url": "https://huggingface.co/datasets/difraud/difraud",
+  "split": "test",
+  "seed": 42,
+  "sample": 100,
+  "fraud": 50,
+  "legitimate": 50,
+  "selection": "Seeded stratified random sample, 120\u20136000 characters; no truncation. Balanced demo sample, not production prevalence.",
+  "sourceSha256": "a74a0eaef001d0d90dd7db6519a00213cd1bf99b18c06bf5ffc23f2044e5a068",
+  "downloaded": "2026-09-17",
+  "license": "MIT per dataset card"
+}

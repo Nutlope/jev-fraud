@@ -1,0 +1,9 @@
+export const THRESHOLD:number;
+export const MODELS:Record<string,string>;
+export const PRICES:Record<string,number>;
+export const QUESTION:Record<string,unknown>;
+export function shouldEscalate(confidence:number,threshold?:number):boolean;
+export function summarize(rows:any[]):any;
+export function processEmail(email:any,env:any,threshold:number,onEvent?:(event:any)=>void,signal?:AbortSignal):Promise<any>;
+export function classifyJev(text:string,env:any,signal?:AbortSignal):Promise<any>;
+export function classifyKimi(text:string,env:any,signal?:AbortSignal):Promise<any>;
