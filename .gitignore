@@ -47,3 +47,7 @@ next-env.d.ts
 
 !.env.example
 *.tsbuildinfo
+
+# Local exploratory provider traces
+/data/*probe*.json
+/data/live-concurrency-validation.json
